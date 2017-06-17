@@ -3,4 +3,6 @@
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="r_16dp">16dp</dimen>
     <dimen name="r_12dp">12dp</dimen>
+    <dimen name="r_4dp">4dp</dimen>
+    <dimen name="r_24dp">24dp</dimen>
 </resources>

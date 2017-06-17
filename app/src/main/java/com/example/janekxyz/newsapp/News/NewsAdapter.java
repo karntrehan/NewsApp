@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.janekxyz.newsapp.R;
@@ -39,6 +40,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         TextView title = (TextView) convertView.findViewById(R.id.title);
         title.setText(news.getTitle());
+
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.image);
+        imageView.setImageResource(checkImage(news.getSection()));
 
         TextView section = (TextView) convertView.findViewById(R.id.section);
         section.setText(news.getSection());
@@ -77,5 +81,31 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         return time;
+    }
+
+    private int checkImage(String section){
+        switch (section){
+            case "UK news":
+                return R.drawable.news;
+            case "Sport":
+            case "Football":
+                return R.drawable.sport;
+            case "Business":
+                return R.drawable.business;
+            case "Global development":
+            case "World news":
+                return R.drawable.global;
+            case "Television & radio":
+            case "Technology":
+                return R.drawable.technology;
+            case "Life and style":
+                return R.drawable.life;
+            case "Music":
+                return R.drawable.music;
+            case "Politics":
+                return R.drawable.politic;
+            default:
+                return R.mipmap.ic_launcher;
+        }
     }
 }

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_below="@+id/time"
         android:maxLines="2"
         android:ellipsize="end"
         android:textSize="24sp"
@@ -18,12 +19,23 @@
         tools:text="News"
         />
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/r_24dp"
+        android:layout_height="@dimen/r_24dp"
+        android:layout_marginTop="@dimen/r_4dp"
+        android:layout_below="@+id/title"
+        tools:src="@mipmap/ic_launcher"
+        />
+
     <TextView
         android:id="@+id/section"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/image"
+        android:layout_marginTop="@dimen/r_4dp"
+        android:layout_marginStart="@dimen/r_4dp"
         android:textSize="@dimen/text_16sp"
         tools:text="Section"/>
 
@@ -31,7 +43,6 @@
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/section"
         android:layout_marginTop="4dp"
         android:textSize="12sp"
         tools:text="10.02.1995"/>
@@ -41,9 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/day"
-        android:layout_marginTop="4dp"
         android:textSize="12sp"
         tools:text="19:54"
         />
+
 
 </RelativeLayout>

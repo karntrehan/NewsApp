@@ -4,18 +4,17 @@ package com.example.janekxyz.newsapp.Search;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.example.janekxyz.newsapp.News.NewsFragment;
+import com.example.janekxyz.newsapp.News.NewsPageFragmentListener;
 import com.example.janekxyz.newsapp.R;
 
 import java.text.ParseException;
@@ -28,7 +27,7 @@ import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment{
 
 
     private static final String LOG_TAG = SearchFragment.class.getSimpleName();
@@ -37,13 +36,20 @@ public class SearchFragment extends Fragment {
 
     Calendar myCalendar = Calendar.getInstance();
 
+    static NewsPageFragmentListener newsPageFragmentListener;
+
+
     public SearchFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+        Bundle bundle = getArguments();
+        newsPageFragmentListener = (NewsPageFragmentListener) bundle.getSerializable("listener");
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
@@ -94,13 +100,7 @@ public class SearchFragment extends Fragment {
                 Search searchObject = new Search(t,c,d);
                 ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewPager);
 
-                NewsFragment fragment = new NewsFragment();
-                fragment.setObject(searchObject);
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                newsPageFragmentListener.onSwitchToNews();
 
                 viewPager.setCurrentItem(0);
             }

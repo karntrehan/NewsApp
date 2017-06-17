@@ -17,5 +17,6 @@
     <string name="title">Title</string>
     <string name="category">Category</string>
     <string name="since">Since date</string>
+    <string name="comma">,</string>
 
 </resources>

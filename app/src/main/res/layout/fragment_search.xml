@@ -10,7 +10,6 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/r_16dp"
         android:hint="@string/title"
         android:inputType="text"
         />
@@ -29,7 +28,6 @@
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/r_16dp"
         android:layout_below="@id/category"
         android:focusable="false"
         android:layout_marginTop="@dimen/r_16dp"

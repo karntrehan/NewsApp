@@ -29,7 +29,7 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>> {
+public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>>{
     // Search object with search values
     Search search = null;
 
@@ -51,6 +51,7 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     public NewsFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
