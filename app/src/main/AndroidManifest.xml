@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.janekxyz.newsapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/news"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:windowSoftInputMode="adjustPan"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -20,10 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Settings.Settings">
+        <activity android:name=".Settings.Settings"
+            android:label="@string/settings"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Search.SearchActivity"
+            android:label="@string/search"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
 
         </activity>
-
     </application>
 
 </manifest>

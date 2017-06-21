@@ -25,7 +25,7 @@ import java.util.List;
 
 public class HttpConnection {
 
-    // Class name for log
+    // Class name for logging
     private static final String LOG_TAG = HttpConnection.class.getSimpleName();
 
 
@@ -142,7 +142,7 @@ public class HttpConnection {
                 listNews.add(news);
             }
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem with get data from Json");
+            Log.e(LOG_TAG, "Problem with getting data from Json");
         }
 
         return listNews;

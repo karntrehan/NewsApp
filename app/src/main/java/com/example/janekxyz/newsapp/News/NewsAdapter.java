@@ -18,10 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Janekxyz on 10.06.2017.
- */
-
 public class NewsAdapter extends ArrayAdapter<News> {
 
     private static final String LOG_TAG = NewsAdapter.class.getSimpleName();
@@ -86,6 +82,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     private int checkImage(String section){
         switch (section){
             case "UK news":
+            case "US news":
                 return R.drawable.news;
             case "Sport":
             case "Football":
@@ -94,6 +91,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
                 return R.drawable.business;
             case "Global development":
             case "World news":
+            case "Travel":
                 return R.drawable.global;
             case "Television & radio":
             case "Technology":
@@ -104,8 +102,12 @@ public class NewsAdapter extends ArrayAdapter<News> {
                 return R.drawable.music;
             case "Politics":
                 return R.drawable.politic;
+            case "Opinion":
+                return R.drawable.opinion;
+            case "Books":
+                return R.drawable.books;
             default:
-                return R.mipmap.ic_launcher;
+                return R.drawable.info;
         }
     }
 }

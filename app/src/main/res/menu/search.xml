@@ -2,19 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.janekxyz.newsapp.MainActivity" >
+    tools:context="com.example.janekxyz.newsapp.Search.SearchActivity">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/submit_search"
         android:title="@string/search"
+        android:icon="@drawable/done"
         android:orderInCategory="1"
-        android:icon="@drawable/search"
         app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/settings"
-        android:title="@string/settings"
-        android:icon="@drawable/ic_filter"
-        android:orderInCategory="1"
-        app:showAsAction="ifRoom" />
 </menu>

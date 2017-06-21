@@ -7,6 +7,7 @@
         android:inputType="number"
         android:key="@string/settings_page_size_key"
         android:selectAllOnFocus="true"
+        android:dialogMessage="@string/hint_settings"
         android:title="@string/settings_news_number" />
 
 </PreferenceScreen>

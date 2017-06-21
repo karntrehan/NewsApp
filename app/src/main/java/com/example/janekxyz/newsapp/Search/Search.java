@@ -1,10 +1,11 @@
 package com.example.janekxyz.newsapp.Search;
 
+
 /**
- * Created by Janekxyz on 15.06.2017.
+ * Created by Janekxyz on 18.06.2017.
  */
 
-public class Search {
+public class Search{
     private String title;
     private String category;
     private String date;
@@ -13,6 +14,9 @@ public class Search {
         this.title = title;
         this.category = category;
         this.date = date;
+    }
+
+    public Search() {
     }
 
     public String getTitle() {
@@ -28,3 +32,4 @@ public class Search {
     }
 
 }
+

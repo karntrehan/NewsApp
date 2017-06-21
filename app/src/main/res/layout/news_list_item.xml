@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/r_4dp"
     android:padding="16dp" >
 
     <TextView
@@ -16,6 +17,7 @@
         android:ellipsize="end"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/colorAccent"
         tools:text="News"
         />
 
@@ -31,11 +33,12 @@
     <TextView
         android:id="@+id/section"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/r_24dp"
         android:layout_below="@+id/title"
         android:layout_toEndOf="@+id/image"
         android:layout_marginTop="@dimen/r_4dp"
         android:layout_marginStart="@dimen/r_4dp"
+        android:gravity="center_vertical"
         android:textSize="@dimen/text_16sp"
         tools:text="Section"/>
 
@@ -45,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textSize="12sp"
+        android:textColor="@color/colorPrimaryDark"
         tools:text="10.02.1995"/>
 
     <TextView
@@ -52,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/day"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
         tools:text="19:54"
         />
