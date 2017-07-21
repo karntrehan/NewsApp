@@ -37,8 +37,6 @@ public class NewsFragmentAdapter extends FragmentPagerAdapter{
         switch (position){
             case 0:
                 if(newsFragment == null){
-
-
                     newsFragment = new NewsFragment();
                     newsFragment.setArguments(bundle);
                 }
@@ -76,11 +74,11 @@ public class NewsFragmentAdapter extends FragmentPagerAdapter{
         @Override
         public void onSwitchToNews() {
             fragmentManager.beginTransaction().remove(newsFragment).commit();
-            if(newsFragment instanceof SearchFragment){
+            if(newsFragment instanceof NewsFragment){
                 newsFragment = new NewsFragment();
                 newsFragment.setArguments(bundle);
             } else {
-                newsFragment = new NewsFragment();
+                newsFragment = new SearchFragment();
                 newsFragment.setArguments(bundle);
             }
 

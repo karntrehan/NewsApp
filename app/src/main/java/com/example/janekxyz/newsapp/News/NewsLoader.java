@@ -1,7 +1,7 @@
 package com.example.janekxyz.newsapp.News;
 
-import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.support.v4.content.AsyncTaskLoader;
 
 import com.example.janekxyz.newsapp.Connection.HttpConnection;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Janekxyz on 10.06.2017.
  */
 
-public class NewsLoader extends AsyncTaskLoader<List<News>>{
+public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     private String url;
 

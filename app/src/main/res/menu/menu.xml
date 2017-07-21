@@ -5,13 +5,6 @@
     tools:context="com.example.janekxyz.newsapp.MainActivity" >
 
     <item
-        android:id="@+id/search"
-        android:title="@string/search"
-        android:orderInCategory="1"
-        android:icon="@drawable/search"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/settings"
         android:title="@string/settings"
         android:icon="@drawable/ic_filter"

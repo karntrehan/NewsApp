@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +31,8 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
  * A simple {@link Fragment} subclass.
  */
 public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>>{
-    // Search object with search values
-    Search search = null;
+
+    private static final String LOG_TAG = NewsFragment.class.getSimpleName();
 
     // Loader id for LoaderManager
     private static final int LOADER_ID = 1;
@@ -41,6 +42,9 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
 
     // Default json query that will be used when user won't choose any actions. It's connected with API_KEY
     private static final String DEFAULT_JSON_QUERY = "https://content.guardianapis.com/search?api-key="+API_KEY;
+
+    // Search object with search values
+    Search search = null;
 
     // Adapter
     private NewsAdapter adapter;
@@ -91,9 +95,10 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         // page size set in menu by user
         String pageSize = sharedPreferences.getString(getString(R.string.settings_page_size_key), getString(R.string.settings_page_size_default));
 
+        Uri baseUri = Uri.parse(DEFAULT_JSON_QUERY);
+        Uri.Builder builder = baseUri.buildUpon();
+
         if(search != null) {
-            Uri baseUri = Uri.parse(DEFAULT_JSON_QUERY);
-            Uri.Builder builder = baseUri.buildUpon();
 
             if(search.getTitle() != null) {
                 builder.appendQueryParameter("q", search.getTitle());
@@ -110,9 +115,12 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
             builder.appendQueryParameter("page-size", pageSize);
 
             System.out.println("REQUEST: " + builder.toString());
+            Log.i(LOG_TAG, "URL!=null: "+builder.toString());
             return new NewsLoader(getActivity(), builder.toString());
         } else {
-            return new NewsLoader(getActivity(), DEFAULT_JSON_QUERY);
+            builder.appendQueryParameter("page-size", pageSize);
+            Log.i(LOG_TAG, "URL==null: "+builder.toString());
+            return new NewsLoader(getActivity(), builder.toString());
         }
     }
 
@@ -134,6 +142,24 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onLoaderReset(android.support.v4.content.Loader<List<News>> loader) {
         adapter.clear();
     }
+
+    /*@Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (key.equals(getString(R.string.settings_page_size_key))){
+            // Clear the ListView as a new query will be kicked off
+            adapter.clear();
+
+            // Hide the empty state text view as the loading indicator will be displayed
+            empty.setVisibility(View.GONE);
+
+            // Show the loading indicator while new data is being fetched
+            View loadingIndicator = findViewById(R.id.progress);
+            loadingIndicator.setVisibility(View.VISIBLE);
+
+            // Restart the loader to requery the USGS as the query settings have been updated
+            getLoaderManager().restartLoader(LOADER_ID, null, this);
+        }
+    }*/
 
     public void setObject(Search search){
         this.search = search;
