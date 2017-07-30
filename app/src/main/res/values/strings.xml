@@ -18,5 +18,6 @@
     <string name="category">Category</string>
     <string name="since">Since date</string>
     <string name="comma">,</string>
+    <string name="since_date">Since</string>
 
 </resources>

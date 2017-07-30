@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.example.janekxyz.newsapp"
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,14 @@ android {
 }
 
 dependencies {
+
+    //We define the versions at the top to be able to update them easily
+    // with links to look at the newest releases.
+    /*https://github.com/square/okhttp#download*/
+    def OKHTTP = '3.8.1'
+    /*http://search.maven.org/#artifactdetails%7Ccom.google.code.gson%7Cgson%7C2.8.1%7C*/
+    def GSON = '2.8.1'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -29,4 +37,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
+
+    compile "com.squareup.okhttp3:okhttp:$OKHTTP"
+    compile "com.google.code.gson:gson:$GSON"
 }

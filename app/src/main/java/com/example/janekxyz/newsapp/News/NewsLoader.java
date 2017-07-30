@@ -31,6 +31,8 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
             return null;
         }
 
+        //We will start changing the HttpConnection.fetchData(url) with our
+        //OKHttp connection
         return HttpConnection.fetchData(url);
 
     }
